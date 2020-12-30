@@ -22,3 +22,14 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+## usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|id|integer|null: false, foreign_key: true|
+|email|string|null: false|
+|password|integer|null: false|
+
+### Association
+- has_many:tweets
+- has_many:comments
