@@ -46,13 +46,23 @@ Things you may want to cover:
 - belongs_to :user
 - has_many :comments
 
-## tweet_tagsテーブル
+## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|tweets_id|integer|null: false, foreign_key: true|
-|tags_id|integer|null: false, foreign_key: true|
+|groups_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
 
 ### Association
-- belongs_to :tweet
-- belongs_to :tag
+- has_many:users
+
+## groups_usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|groups_id|integer|null: false,foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :group
