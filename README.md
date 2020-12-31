@@ -27,42 +27,43 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false, foreign_key: true|
+|name|string|null:false|
 |email|string|null: false|
-|password|integer|null: false|
+|password|string|null: false|
 
 ### Association
-- has_many:tweets
-- has_many:comments
+- has_many:messages
+- has_many:users_groups
 
-## tweetsテーブル
+## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|tweet_id|integer|null: false, foreign_key: true|
-|text|text|null: false|
-|user_id|string|null: false|
+|id|integer|null: false, foreign_key: true|
+|text|text|null:false|
+|image|text|null: false|
+|users_id|string|null: false,foreign_key: true|
 
 ### Association
-- belongs_to :user
-- has_many :comments
+- belongs_to:user
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|groups_id|integer|null: false, foreign_key: true|
+|id|integer|null: false, foreign_key: true|
 |name|string|null: false|
 
 ### Association
-- has_many:users
+- has_many:users_groups
 
-## groups_usersテーブル
+## users_groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|groups_id|integer|null: false,foreign_key: true|
+|users_id|integer|null: false, foreign_key: true|
+|groups_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
-- belongs_to :group
+- belongs_to:user
+- belongs_to:group
