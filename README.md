@@ -26,7 +26,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-||integer|null: false, foreign_key: true|
 |name|string|null:false|
 |email|string|null: false|
 |password|string|null: false|
@@ -34,17 +33,16 @@ Things you may want to cover:
 ### Association
 - has_many:messages
 - has_many:users_groups
-- has_many:group,through:group_user
+- has_many:groups,through:groups_users
 
 ## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-||integer|null: false, foreign_key: true|
 |text|text||
 |image|text||
 |user|reference|null: false,foreign_key: true|
-|group|reference|null: false,foreign_key: true|
+|group|reference|null: false,foreign_key:true|
 
 ### Association
 - belongs_to:user
@@ -54,12 +52,11 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-||integer|null: false, foreign_key: true|
 |name|string|null: false|
 
 ### Association
 - has_many:users_groups
-- has_many:users,through:group_user
+- has_many:users,through:groups_users
 
 ## users_groupsテーブル
 
